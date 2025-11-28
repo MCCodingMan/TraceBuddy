@@ -2,7 +2,8 @@ package ports
 
 import (
 	"context"
-	"tracebuddy/internal/core/domain"
+
+	"github.com/MCCodingMan/TraceBuddy/internal/core/domain"
 )
 
 // LogRepository 定义日志存储和检索的接口

@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"tracebuddy/internal/core/domain"
+	"github.com/MCCodingMan/TraceBuddy/pkg/core/domain"
 
 	"github.com/redis/go-redis/v9"
 )

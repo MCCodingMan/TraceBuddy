@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"tracebuddy/internal/core/ports"
+	"github.com/MCCodingMan/TraceBuddy/pkg/core/ports"
 
 	"github.com/gin-gonic/gin"
 )

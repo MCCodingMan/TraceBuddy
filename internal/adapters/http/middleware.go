@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"time"
 
-	"tracebuddy/internal/adapters/logger"
-	"tracebuddy/internal/core/domain"
-	"tracebuddy/internal/utils"
+	"github.com/MCCodingMan/TraceBuddy/internal/adapters/logger"
+	"github.com/MCCodingMan/TraceBuddy/pkg/core/domain"
+	"github.com/MCCodingMan/TraceBuddy/pkg/utils"
 
 	"github.com/gin-gonic/gin"
 )

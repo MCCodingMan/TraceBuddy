@@ -1,0 +1,4 @@
+TraceBuddyClient/node_modules
+TraceBuddyClient/dist/assets
+TraceBuddyClient/pkg/mod
+TraceBuddyClient/pkg/sumdb

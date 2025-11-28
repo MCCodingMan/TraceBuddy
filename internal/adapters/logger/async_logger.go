@@ -5,8 +5,8 @@ import (
 	"log"
 	"sync"
 
-	"tracebuddy/internal/core/domain"
-	"tracebuddy/internal/core/ports"
+	"github.com/MCCodingMan/TraceBuddy/pkg/core/domain"
+	"github.com/MCCodingMan/TraceBuddy/pkg/core/ports"
 )
 
 // AsyncLogger 异步日志记录器

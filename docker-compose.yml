@@ -1,19 +1,17 @@
 version: '3.8'
 
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
-    container_name: tracebuddy-es
+  postgres:
+    image: postgres:16
+    container_name: tracebuddy-postgres
     environment:
-      - node.name=es01
-      - cluster.name=tracebuddy-cluster
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - POSTGRES_USER=tracebuddy
+      - POSTGRES_PASSWORD=tracebuddy
+      - POSTGRES_DB=tracebuddy
     ports:
-      - "9200:9200"
+      - "5432:5432"
     volumes:
-      - es_data:/usr/share/elasticsearch/data
+      - pg_data:/var/lib/postgresql/data
     networks:
       - tracebuddy-net
 
@@ -27,20 +25,10 @@ services:
     networks:
       - tracebuddy-net
 
-  kibana:
-    image: docker.elastic.co/kibana/kibana:8.10.2
-    container_name: tracebuddy-kibana
-    ports:
-      - "5601:5601"
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-    depends_on:
-      - elasticsearch
-    networks:
-      - tracebuddy-net
+  
 
 volumes:
-  es_data:
+  pg_data:
   redis_data:
 
 networks:

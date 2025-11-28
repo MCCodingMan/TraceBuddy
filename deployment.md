@@ -6,7 +6,7 @@
 
 ## Quick Start (Docker)
 1. Clone the repository.
-2. Run `docker-compose up -d` to start Elasticsearch, Redis, and Kibana.
+2. Run `docker-compose up -d` to start PostgreSQL and Redis.
 3. Build and run the application:
    ```bash
    go build -o tracebuddy cmd/server/main.go
@@ -16,12 +16,13 @@
 ## Configuration
 Environment variables can be set in `.env` or passed directly:
 - `SERVER_PORT`: Port to listen on (default: 8080)
-- `ELASTIC_URL`: Elasticsearch URL (default: http://localhost:9200)
+- `DB_DRIVER`: Database driver (default: pgx)
+- `DB_DSN`: Postgres DSN (default: postgres://tracebuddy:tracebuddy@localhost:5432/tracebuddy?sslmode=disable)
 - `REDIS_ADDR`: Redis Address (default: localhost:6379)
 
 ## Production Deployment
 For production, it is recommended to:
-1. Use a managed Elasticsearch service or a dedicated cluster.
+1. Use a managed Postgres service or a dedicated cluster.
 2. Enable Redis persistence.
 3. Run the application behind a load balancer (Nginx/HAProxy).
 4. Use a process manager like systemd or Supervisord.

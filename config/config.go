@@ -6,26 +6,28 @@ import (
 )
 
 type Config struct {
-	ServerPort    string
-	ElasticURL    string
-	RedisAddr     string
-	RedisPassword string
-	RedisDB       int
-	Environment   string
-	ServiceName   string
+    ServerPort    string
+    RedisAddr     string
+    RedisPassword string
+    RedisDB       int
+    Environment   string
+    ServiceName   string
+    DatabaseDriver string
+    DatabaseDSN    string
 }
 
 // Load 从环境变量加载配置
 func Load() *Config {
-	return &Config{
-		ServerPort:    getEnv("SERVER_PORT", "8080"),
-		ElasticURL:    getEnv("ELASTIC_URL", "http://localhost:9200"),
-		RedisAddr:     getEnv("REDIS_ADDR", "localhost:6379"),
-		RedisPassword: getEnv("REDIS_PASSWORD", ""),
-		RedisDB:       getEnvInt("REDIS_DB", 0),
-		Environment:   getEnv("ENVIRONMENT", "development"),
-		ServiceName:   getEnv("SERVICE_NAME", "tracebuddy"),
-	}
+    return &Config{
+        ServerPort:    getEnv("SERVER_PORT", "8080"),
+        RedisAddr:     getEnv("REDIS_ADDR", "localhost:6379"),
+        RedisPassword: getEnv("REDIS_PASSWORD", ""),
+        RedisDB:       getEnvInt("REDIS_DB", 0),
+        Environment:   getEnv("ENVIRONMENT", "development"),
+        ServiceName:   getEnv("SERVICE_NAME", "tracebuddy"),
+        DatabaseDriver: getEnv("DB_DRIVER", "pgx"),
+        DatabaseDSN:    getEnv("DB_DSN", "postgres://tracebuddy:tracebuddy@localhost:5432/tracebuddy?sslmode=disable"),
+    }
 }
 
 func getEnv(key, fallback string) string {
